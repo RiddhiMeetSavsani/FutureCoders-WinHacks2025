@@ -29,7 +29,7 @@ In this application, we earn points for completing challenges, which can be used
 # App Design
 ## Login Page
 We provided an easy to use login page that allows by email or SSO (Single Sign On) by Facebook, Google, or Apple. 
-![Login Page Starter 15Feb2025.jpg]
+![login page for web app](<Login Page Starter 15Feb2025.jpg>)
 
 
  
