@@ -26,6 +26,7 @@ interface Challenge{
 export class DailyChallengesComponent {
 
   challengeList : Challenge[] = [];
+  totalScore : number = 0;
 
   constructor() {
   }
@@ -43,6 +44,7 @@ export class DailyChallengesComponent {
 
   markAsCompleted(challenge: Challenge) {
     challenge.status = 'completed';
+    this.totalScore++;
   }
 
   skipChallenge(challenge: Challenge) {
