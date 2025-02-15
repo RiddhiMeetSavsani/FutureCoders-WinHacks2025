@@ -50,4 +50,6 @@ export class DailyChallengesComponent {
   skipChallenge(challenge: Challenge) {
     challenge.status = 'skipped';
   }
+
+
 }
