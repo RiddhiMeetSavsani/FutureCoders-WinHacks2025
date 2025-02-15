@@ -29,8 +29,7 @@ In this application, we earn points for completing challenges, which can be used
 # App Design
 ## Login Page
 We provided an easy to use login page that allows by email or SSO (Single Sign On) by Facebook, Google, or Apple. 
-![Login Page Starter 15Feb2025.jpg]
-
+![login page for web app](<https://github.com/RiddhiMeetSavsani/FutureCoders-WinHacks2025/blob/README/Login%20Page%20Starter%2015Feb2025.jpg>)
 
  
 # References and License Used
