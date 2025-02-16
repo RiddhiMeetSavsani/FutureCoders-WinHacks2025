@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 
 
 interface Challenge{
@@ -16,7 +16,8 @@ interface Challenge{
   imports: [
     NgClass,
     NgForOf,
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './daily-challenges.component.html',
   styleUrl: './daily-challenges.component.css'
