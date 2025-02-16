@@ -15,16 +15,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+<<<<<<< HEAD
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#challenges">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="#friend">Invite A Friend</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leader">Leaderboard</a></li>
+=======
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Challenges</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Invite A Friend</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateLink()">Leader Board</a></li>
+>>>>>>> origin/feature
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Profile Section -->
-  <div class="profile-section">
+  <div class="profile-section" id="home">
     <div class="container">
       <div class="d-flex align-items-center">
         <img src="assets/pictures/avatar.jpg" alt="John Doe" class="profile-img"/>
@@ -39,7 +46,7 @@
   </div>
 
   <!-- Daily Challenges Section (with default challenges) -->
-  <div class="container mt-5">
+  <div class="container mt-5" id="challenges">
     <h2 class="mb-4">Daily Challenges</h2>
     <h4 class="quote"> {{motivationalQuote}} </h4>
     <div class="row">
@@ -54,9 +61,12 @@
 
           </p>
           <p><strong>Streak:</strong> {{ challenge.streak }} days</p>
-          <button class="btn btn-outline-primary" (click)="editChallenge(challenge)" [disabled]="challenge.status === 'Completed'">Update</button>
-          <button class="btn btn-danger" (click)="deleteChallenge(i, true)">Delete</button>
-          <button class="btn btn-outline-success" (click)="markAsCompleted(challenge)" [disabled]="challenge.status === 'Completed'">Mark as Completed</button>
+          <div class="button-group">
+            <button class="btn btn-outline-primary" (click)="editChallenge(challenge)" [disabled]="challenge.status === 'Completed'">Update</button>
+            <button class="btn btn-danger" (click)="deleteChallenge(i, true)">Delete</button>
+            <button class="btn btn-outline-success" (click)="markAsCompleted(challenge)" [disabled]="challenge.status === 'Completed'">Mark as Completed</button>
+          </div>
+
           <!-- Status moved to top right corner -->
           <span class="badge bg-secondary position-absolute top-0 end-0 m-2">{{ challenge.status }}</span>
         </div>
@@ -134,7 +144,7 @@
       </div>
 
       <!-- SECTION ADD FRIEND -->
-      <div class="container add-friend mt-5">
+      <div class="container add-friend mt-5" id="friend">
         <div class="score-section">
           <h3>Score: {{ totalScore }}</h3>
           <p>Grow your challenge network</p>
@@ -156,6 +166,14 @@
           </div>
         </div>
       </div>
+
+<<<<<<< HEAD
+
+
+
+=======
+      <app-leader-board></app-leader-board>
+>>>>>>> origin/feature
 
     </div>
   </div>
