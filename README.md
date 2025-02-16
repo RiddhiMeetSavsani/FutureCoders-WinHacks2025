@@ -1,6 +1,6 @@
 ***
 # Future Coders: Duel Daily
-**Winhacks 2025 (Windsor, ON)**
+# **Winhacks 2025 (Windsor, ON)**
 ***
 
 ## Getting Started
