@@ -33,9 +33,18 @@ export class HomeComponent implements OnInit {
   challengeDesc: string = '';
   isEditing: boolean = false;
   currentChallenge: Challenge = { desc: '', name: '' }; // Holds the challenge being edited
+  totalScore : number = 0;
+  motivationalQuote : string = '';
 
   ngOnInit() {
     this.loadChallenges();
+
+    const baseURL ="https://qapi.vercel.app/api/random";
+
+    fetch(baseURL).then(basicData => basicData.json()).then(data=>{
+      console.log(data);
+      this.motivationalQuote = data.quote;
+    });
   }
 
   // Load challenges from localStorage
@@ -58,7 +67,7 @@ export class HomeComponent implements OnInit {
       desc: this.challengeDesc.trim(),
       id: this.generateUniqueId(),  // Ensure each challenge has a unique ID
       streak: 0,  // Initialize streak to 0
-      status: 'In Progress',  // Initialize status
+      status: 'In Process',  // Initialize status
       completedDates: []  // Initialize completedDates array
     };
 
@@ -131,6 +140,7 @@ export class HomeComponent implements OnInit {
 
   // Mark challenge as completed
   markAsCompleted(challenge: Challenge): void {
+    this.totalScore++;
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
     // If the challenge is not completed on the previous day, reset the streak
