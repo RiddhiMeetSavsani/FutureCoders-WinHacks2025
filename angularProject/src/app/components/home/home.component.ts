@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
+import {LeaderBoardComponent} from '../leader-board/leader-board.component';
+import {Router, RouterLink} from '@angular/router';
 
 interface Challenge {
   name: string;
@@ -18,7 +20,9 @@ interface Challenge {
   imports: [
     FormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    LeaderBoardComponent,
+    RouterLink
   ],
   styleUrls: ['./home.component.css']
 })
@@ -35,6 +39,9 @@ export class HomeComponent implements OnInit {
   currentChallenge: Challenge = { desc: '', name: '' }; // Holds the challenge being edited
   totalScore : number = 0;
   motivationalQuote : string = '';
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.loadChallenges();
@@ -177,5 +184,10 @@ export class HomeComponent implements OnInit {
 
     // Save the updated challenges to localStorage
     localStorage.setItem('challenges', JSON.stringify(this.challenges));
+  }
+
+
+  navigateLink():void{
+    this.router.navigate(['/leaderboard']);
   }
 }
