@@ -1,5 +1,6 @@
 ***
 # Future Coders @ WinHacks 2025 (Windsor, ON)
+***
 
 ## Getting Started
 
@@ -30,11 +31,14 @@ In this application, we earn points for completing challenges, which can be used
 
 ## Screenshots
 Shown here is the main page that shows the current challenges
+
 ![home page](<./Readme Images/Screenshot 2025-02-16 093902.png>)
 
 We can add our own challenges to the list and mark when we have completed the task
+
 ![adding a new challenge](<./Readme Images/Screenshot 2025-02-16 095305.png>)
 
+***
 ### Future Plans
 We would like to provided an easy to use login page that allows by email or SSO (Single Sign On) by Facebook, Google, or Apple. This has not been implemented yet. 
 ![login page for web app](<./Readme Images/Login Page Starter 15Feb2025.jpg>)
