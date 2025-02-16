@@ -2,7 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import {provideRouter, Routes} from '@angular/router';
-import {DailyChallengesComponent} from './app/daily-challenges/daily-challenges.component';
+import {DailyChallengesComponent} from './app/components/daily-challenges/daily-challenges.component';
 
 
 const routes: Routes = [
