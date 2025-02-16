@@ -1,0 +1,16 @@
+/* styles.css */
+.badge {
+  font-size: 1.2em;
+}
+.badge-warning {
+  background-color: gold;
+  color: black;
+}
+.badge-secondary {
+  background-color: silver;
+  color: black;
+}
+.badge-danger {
+  background-color: #cd7f32; /* Bronze color */
+  color: black;
+}

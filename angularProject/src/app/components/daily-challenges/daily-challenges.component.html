@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational Quotes</title>
+</head>
+
+<body>
+
+  <div class="challenges-container">
+    <h2>Daily Challenges</h2>
+
+    <div *ngIf="challengeList.length === 0">No challenges for today!</div>
+
+    <div *ngFor="let challenge of challengeList" class="challenge-card" [ngClass]="{'completed': challenge.status === 'completed', 'skipped': challenge.status === 'skipped'}">
+      <div class="challenge-header">
+        <h3>{{ challenge.title }}</h3>
+      </div>
+      <p>Type: {{ challenge.type }}</p>
+      <div class="buttons">
+        <button *ngIf="challenge.status === 'pending'" (click)="markAsCompleted(challenge)">Complete</button>
+        <button *ngIf="challenge.status === 'pending'" (click)="skipChallenge(challenge)"> Skip</button>
+        <span *ngIf="challenge.status === 'completed'" class="status completed">Completed</span>
+        <span *ngIf="challenge.status === 'skipped'" class="status skipped">Skipped</span>
+      </div>
+    </div>
+
+    <div>
+      Total Score : {{totalScore}}
+    </div>
+
+    <div>
+      <button>Add new Challenge</button>
+    </div>
+  </div>
+
+</body>
+</html>
+
