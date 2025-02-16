@@ -37,6 +37,13 @@ The biggest challenge was balancing diverse interests and ensuring everyone felt
 
 ***
 ## Technologies Used 🔍
+|  Language  |         Description         |
+|:----------:|:---------------------------:|
+|    HTML    | Used for designing the website. Some starter templates were used |
+|    CSS     | Improving the readability and esthetics of the website |
+| Angular JS | Creating the dynamic buttons and layouts for the web application |
+|   Github   | where the application is being hosted |
+|VScode and PHPStorm| Our code editors of choice for the short time we were at Winhacks |
 
 
 ## Screenshots
