@@ -27,6 +27,7 @@ export class DailyChallengesComponent {
 
   challengeList : Challenge[] = [];
   totalScore : number = 0;
+  motivationalQuote : string = '';
 
   constructor() {
   }
@@ -40,6 +41,14 @@ export class DailyChallengesComponent {
       {id : 1, title:"Do 10 Push ups", type:"Fitness", status:"pending", icon: "fa-solid fa-dumbbell"}
 
     ]
+
+    const baseURL = "https://qapi.vercel.app/api/random";
+    fetch(baseURL)
+      .then(response => response.json())
+      .then(data => {
+        this.motivationalQuote = data.quote;  // Store the quote in the component
+      })
+      .catch(error => console.error('Error fetching quote:', error));
   }
 
   markAsCompleted(challenge: Challenge) {
