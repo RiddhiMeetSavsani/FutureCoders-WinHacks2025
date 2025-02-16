@@ -1,0 +1,180 @@
+<div class="main-body">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/pictures/LOGODD.png" alt="Duel Daily Logo" width="40"/>Duel Daily
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+<<<<<<< HEAD
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#challenges">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="#friend">Invite A Friend</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leader">Leaderboard</a></li>
+=======
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateLink()">Leader Board</a></li>
+>>>>>>> origin/feature
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Section -->
+  <div class="profile-section" id="home">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <img src="assets/pictures/avatar.jpg" alt="John Doe" class="profile-img"/>
+        <div class="ms-3">
+          <h2>John Doe</h2>
+          <span class="badge bg-light text-dark">Fitness Enthusiast</span>
+          <p>Keep up the healthy habits!</p>
+        </div>
+      </div>
+      <button class="btn btn-danger invite-btn">Invite A Friend</button>
+    </div>
+  </div>
+
+  <!-- Daily Challenges Section (with default challenges) -->
+  <div class="container mt-5" id="challenges">
+    <h2 class="mb-4">Daily Challenges</h2>
+    <h4 class="quote"> {{motivationalQuote}} </h4>
+    <div class="row">
+      <!-- Default Challenges -->
+      <!-- Default Challenges -->
+      <div class="col-md-4" *ngFor="let challenge of defaultChallenges; let i = index">
+        <div class="challenge-card position-relative">
+          <p><strong>Challenge:</strong> {{ challenge.name }}</p>
+          <p><strong>Description:</strong>
+            <!-- Show description as text when not editing -->
+            <span *ngIf="!isEditing || currentChallenge.id !== challenge.id">{{ challenge.desc }}</span>
+
+          </p>
+          <p><strong>Streak:</strong> {{ challenge.streak }} days</p>
+          <div class="button-group">
+            <button class="btn btn-outline-primary" (click)="editChallenge(challenge)" [disabled]="challenge.status === 'Completed'">Update</button>
+            <button class="btn btn-danger" (click)="deleteChallenge(i, true)">Delete</button>
+            <button class="btn btn-outline-success" (click)="markAsCompleted(challenge)" [disabled]="challenge.status === 'Completed'">Mark as Completed</button>
+          </div>
+
+          <!-- Status moved to top right corner -->
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-2">{{ challenge.status }}</span>
+        </div>
+      </div>
+
+      <!-- Custom Challenges (Added by the user) -->
+      <div class="col-md-4" *ngFor="let challenge of challenges; let i = index">
+        <div class="challenge-card position-relative">
+          <p><strong>Challenge:</strong> {{ challenge.name }}</p>
+          <p><strong>Description:</strong>
+            <!-- Show description as text when not editing -->
+            <span *ngIf="!isEditing || currentChallenge.id !== challenge.id">{{ challenge.desc }}</span>
+
+          </p>
+          <p><strong>Streak:</strong> {{ challenge.streak }} days</p>
+          <button class="btn btn-primary" (click)="editChallenge(challenge)">Update</button>
+          <button class="btn btn-danger" (click)="deleteChallenge(i)">Delete</button>
+          <button class="btn btn-success" (click)="markAsCompleted(challenge)">Mark as Completed</button>
+          <!-- Status moved to top right corner -->
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-2">{{ challenge.status }}</span>
+        </div>
+      </div>
+
+      <!-- Update Challenge Form -->
+      <div *ngIf="isEditing" class="container mt-5">
+        <h2>Update Challenge</h2>
+        <form (submit)="saveUpdatedChallenge()">
+          <div class="mb-3">
+            <label for="challengeName" class="form-label">Challenge Name</label>
+            <input id="challengeName" type="text" class="form-control" [(ngModel)]="currentChallenge.name"
+                   name="challengeName" [readonly]="true" required/>
+          </div>
+          <div class="mb-3">
+            <label for="challengeDesc" class="form-label">Description</label>
+            <input id="challengeDesc" type="text" class="form-control" [(ngModel)]="currentChallenge.desc"
+                   name="challengeDesc" required/>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-outline-dark" (click)="cancelEdit()">Cancel</button>
+        </form>
+      </div>
+
+      <!-- Create Custom Challenge Section -->
+      <div class="container-fluid custom-challenge-section">
+        <div class="container py-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <h2 class="fw-bold">Create Custom Challenge</h2>
+              <p>Set up a challenge tailored to your goals</p>
+
+              <form (submit)="addChallenge($event)">
+                <div class="mb-3">
+                  <label for="challengeName1" class="form-label fw-semibold">Challenge Name</label>
+                  <input id="challengeName1" type="text" [(ngModel)]="challengeName"
+                         [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter challenge name"
+                         required/>
+                </div>
+
+                <div class="mb-3">
+                  <label for="challengeDesc1" class="form-label fw-semibold">Description</label>
+                  <input id="challengeDesc1" type="text" [(ngModel)]="challengeDesc"
+                         [ngModelOptions]="{standalone: true}" class="form-control"
+                         placeholder="Briefly describe the challenge" required/>
+                </div>
+
+                <!-- Removed streak input from the create form -->
+                <div class="d-flex gap-3">
+                  <button type="button" class="btn btn-outline-dark" (click)="clearForm()">Cancel</button>
+                  <button type="submit" class="btn btn-danger">Add Challenge</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION ADD FRIEND -->
+      <div class="container add-friend mt-5" id="friend">
+        <div class="score-section">
+          <h3>Score: {{ totalScore }}</h3>
+          <p>Grow your challenge network</p>
+          <div class="button-group">
+            <button class="btn btn-outline-dark">Skip</button>
+            <button class="btn btn-danger">Add Friend</button>
+          </div>
+        </div>
+        <div class="friends">
+          <div>
+            <img src="assets/pictures/sarahAvatar.jpg" alt="Sarah"/>
+            <p>Sarah</p>
+            <p>Fitness Junkie</p>
+          </div>
+          <div>
+            <img src="assets/pictures/michaelAvatar.jpg" alt="Michael"/>
+            <p>Michael</p>
+            <p>Reading Enthusiast</p>
+          </div>
+        </div>
+      </div>
+
+<<<<<<< HEAD
+
+
+
+=======
+      <app-leader-board></app-leader-board>
+>>>>>>> origin/feature
+
+    </div>
+  </div>
+</div>
