@@ -100,29 +100,8 @@
 	</div>
 </div>
 
-<!--  SECTION: Daily Challenges line 3  -->
-<div class="container mt-5">
-	<div class="row">
-		<div class="col-md-4" id="challenge-card">
-			<div class="challenge-card">
-				<p>Run 10km</p>
-				<p><strong>Difficulty: Medium</strong></p>
-				<button class="btn btn-primary">View Stats</button>
-				<button class="btn btn-dark">Edit Profile</button>
-			</div>
-		</div>
 
-		<div class="col-md-4">
-			<div class="challenge-card">
-				<p>Run 10km</p>
-				<p><strong>Difficulty: Medium</strong></p>
-				<button class="btn btn-primary">View Stats</button>
-				<button class="btn btn-dark">Edit Profile</button>
-			</div>
-		</div>
-	</div>
-</div>
-
+<!-- SECTION ADD FRIEND -->
 <div class="container add-friend mt-5">
 	<div class="score-section">
 		<h3>Score: 30</h3>
@@ -145,6 +124,43 @@
 		</div>
 	</div>
 </div>
+
+
+<!-- Create Custom Challenge Section -->
+<div class="container-fluid custom-challenge-section">
+	<div class="container py-5">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<h2 class="fw-bold">Create Custom Challenge</h2>
+				<p>Set up a challenge tailored to your goals</p>
+
+				<form id="challengeForm">
+					<div class="mb-3">
+						<label for="challengeName" class="form-label fw-semibold">Challenge Name</label>
+						<input type="text" class="form-control" id="challengeName" placeholder="Enter challenge name" required>
+					</div>
+
+					<div class="mb-3">
+						<label for="challengeDesc" class="form-label fw-semibold">Description</label>
+						<input type="text" class="form-control" id="challengeDesc" placeholder="Briefly describe the challenge" required>
+					</div>
+
+					<div class="d-flex gap-3">
+						<button type="button" class="btn btn-outline-dark" id="cancelBtn">Cancel</button>
+						<button type="submit" class="btn btn-danger">Add Challenge</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- External JavaScript File -->
+<script src="script.js"></script>
+
+
+
 
 <!-- Bootstrap JS Bundle with Popper -->
 <script

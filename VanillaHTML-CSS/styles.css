@@ -46,14 +46,19 @@ p {
 /* Center the row of challenge cards */
 .container .row {
 	justify-content: center; /* Centers the columns inside the row */
+
 }
 
 /* Add a Friend Section */
+
 .add-friend {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 80px auto;
+	margin: 40px auto;
+	background-color: #f8f9fa; /* Light grey background */
+	padding: 20px; /* Add some spacing */
+	border-radius: 8px; /* Optional: add rounded corners */
 }
 
 /* Score section on the left */
@@ -93,3 +98,21 @@ p {
 	font-size: 14px;
 	font-weight: bold;
 }
+
+
+.custom-challenge-section {
+	background-color: #dbeeff; /* Light Blue Background */
+	padding: 20px 0;
+}
+
+
+.form-control {
+	border-radius: 6px;
+}
+
+.btn-outline-dark, .btn-danger {
+	padding: 10px 20px;
+	border-radius: 6px;
+}
+
+
